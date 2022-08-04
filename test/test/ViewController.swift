@@ -9,16 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var a = 1
+    var b = "2"
+    var c: Float = 3
+    var sum: Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(a + Int(b)! + Int(c))
     }
     
+   
+    
+   
     
     
-    //22222
-    //new commit for branch "Test"
-    //second commit for Test
-    
-    //finish changes for Test
 }
 
