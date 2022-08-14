@@ -1,12 +1,16 @@
 /*
  
- Create a function that receives a lowercased string without spaces. Return the string with capitalized first word for every sentence. Every new sentence should be moved to the new line.
+ Write a function that checks if a string is a palindrome. The string can contain any characters. It is necessary to take into account only numbers and Latin characters. The case(uppercased or lowercased) is not important.
  Example:
- Input: “lorem ipsum dolor sit amet.consectetur adipiscing elit.sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”
- Output:
- “Lorem ipsum dolor sit amet.
- Consectetur adipiscing elit.
- Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”
+ Input1:
+ Qwe3eWq
+ Output1: true
+ Input2:
+ Qwe3eWЇєq
+ Output2: true
+ Input3:
+ Qwe3eWЇєq1
+ Output3: false
 */
 
 
@@ -15,62 +19,54 @@ import Foundation
 
 class ViewController: UIViewController {
     
-    let originalSentence = "lorem ipsum dolor sit amet.consectetur adipiscing elit.sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    
+    var task = "Qwe3eWЇєq1"
+
     override func viewDidLoad() {
-        stringProcessing(originalSentence)
+        
+        palindrom(newTask)
     }
     
-    func stringProcessing(_ text: String) {
-        
-        var complete: [String] = []
-        let arr: [String] = text.split(separator: ".").joined(separator: "\n").components(separatedBy: "\n")
-        var sentenceOne = arr[0].components(separatedBy: " ")
-        sentenceOne.insert(sentenceOne[0].uppercased(), at: 0)
-        let sentenceOneV2 = sentenceOne.joined(separator: ", ").replacingOccurrences(of: ",", with: " ")
-        complete.append(sentenceOneV2)
-        
-        var sentenceTwo = arr[1].components(separatedBy: " ")
-        sentenceTwo.insert(sentenceTwo[0].uppercased(), at: 0)
-        let sentenceTwoV2 = sentenceTwo.joined(separator: ", ").replacingOccurrences(of: ",", with: " ")
-        complete.append(sentenceTwoV2)
-        
-        var sentenceThree = arr[2].components(separatedBy: " ")
-        sentenceThree.insert(sentenceThree[0].uppercased(), at: 0)
-        let sentenceThreeV2 = sentenceThree.joined(separator: ", ").replacingOccurrences(of: ",", with: " ")
-        complete.append(sentenceThreeV2)
-        
-        print(complete.joined(separator: "\n"))
-            
+    var newTask = task.lowercased()
+        .replacingOccurrences(of: " ", with: "")
+        .replacingOccurrences(of: "й", with: "")
+        .replacingOccurrences(of: "ц", with: "")
+        .replacingOccurrences(of: "у", with: "")
+        .replacingOccurrences(of: "к", with: "")
+        .replacingOccurrences(of: "е", with: "")
+        .replacingOccurrences(of: "н", with: "")
+        .replacingOccurrences(of: "г", with: "")
+        .replacingOccurrences(of: "ш", with: "")
+        .replacingOccurrences(of: "щ", with: "")
+        .replacingOccurrences(of: "з", with: "")
+        .replacingOccurrences(of: "х", with: "")
+        .replacingOccurrences(of: "ї", with: "")
+        .replacingOccurrences(of: "ф", with: "")
+        .replacingOccurrences(of: "і", with: "")
+        .replacingOccurrences(of: "в", with: "")
+        .replacingOccurrences(of: "а", with: "")
+        .replacingOccurrences(of: "п", with: "")
+        .replacingOccurrences(of: "р", with: "")
+        .replacingOccurrences(of: "о", with: "")
+        .replacingOccurrences(of: "л", with: "")
+        .replacingOccurrences(of: "д", with: "")
+        .replacingOccurrences(of: "ж", with: "")
+        .replacingOccurrences(of: "є", with: "")
+        .replacingOccurrences(of: "ґ", with: "")
+        .replacingOccurrences(of: "я", with: "")
+        .replacingOccurrences(of: "ч", with: "")
+        .replacingOccurrences(of: "с", with: "")
+        .replacingOccurrences(of: "м", with: "")
+        .replacingOccurrences(of: "и", with: "")
+        .replacingOccurrences(of: "т", with: "")
+        .replacingOccurrences(of: "ь", with: "")
+        .replacingOccurrences(of: "б", with: "")
+        .replacingOccurrences(of: "ю", with: "")
+    
+
+    func palindrom(_ text: String) -> Bool {
+        let replacing = text
+        return String(replacing.reversed()) == replacing
     }
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    func stringProcessing(_ text: String) {
-//        var complete: [String] = text.split(separator: ".").joined(separator: "\n").components(separatedBy: "\n")
-//        complete = complete.map({$0.capitalizingFirstLetter()})
-//
-//        for index in complete {
-//            print(index)
-//        }
-//
-//    }
-//}
-//
-//extension String {
-//    func capitalizingFirstLetter() -> String {
-//        return prefix(1).capitalized + dropFirst()
-//    }
-//
-//    mutating func capitalizeFirstLetter() {
-//        self = self.capitalizingFirstLetter()
-//    }
-//}
+
 
